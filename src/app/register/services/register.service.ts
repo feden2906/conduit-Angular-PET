@@ -15,10 +15,10 @@ export class RegisterService {
 
   constructor(private httpClient: HttpClient) { }
 
-  registerUser(user): Observable<FullUser> {
-    const body = {user,};
+  registerUser(user): Observable<{ user: FullUser }> {
+    const body = {user};
     console.log(body);
-    return this.httpClient.post<FullUser>(`${this.baseUrl}/users`, body);
+    return this.httpClient.post<{ user: FullUser }>(`${this.baseUrl}/users`, body);
   }
 }
 

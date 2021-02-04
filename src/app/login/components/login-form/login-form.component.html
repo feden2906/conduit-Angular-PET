@@ -1,19 +1,22 @@
+<div class='sign-form'>
 
-  <div class='sign-form'>
+  <p class='sign-title'>Sign in</p>
+  <a [routerLink]="['', 'register']" class="sign-link">Need an account?</a>
 
-    <p class='sign-title'>Sign in</p>
-    <a [routerLink]="['', 'register']" class="sign-link">Need an account?</a>
-
-    <!--    <div class='errors-wrapper'>-->
-    <!--      <Error errors={errors}/>-->
-    <!--    </div>-->
-    <form [formGroup]="loginForm" (ngSubmit)="clickSignIn()">
-      <input class='sign-input' type='email' placeholder='Email' formControlName="email"/>
-      <br>
-      <input class='sign-input' type='password' placeholder='Password' formControlName="password"/>
-      <div class='btn-wrapper'>
-        <button [disabled]="loginForm.status === 'INVALID'"
-                [class]="[loginForm.status === 'INVALID' ? 'sign-btn-invalid' : 'sign-btn']">Sign in</button>
-      </div>
-    </form>
+  <div *ngIf="errors2" class='errors-wrapper'>
+    <ul>
+      <li *ngFor="let e of errors2">{{e}}</li>
+    </ul>
   </div>
+
+  <form [formGroup]="loginForm" (ngSubmit)="clickSignIn()">
+    <input class='sign-input' type='email' placeholder='Email' formControlName="email"/>
+    <br>
+    <input class='sign-input' type='password' placeholder='Password' formControlName="password"/>
+    <div class='btn-wrapper'>
+      <button [disabled]="loginForm.status === 'INVALID'"
+              [class]="[loginForm.status === 'INVALID' ? 'sign-btn-invalid' : 'sign-btn']">Sign in
+      </button>
+    </div>
+  </form>
+</div>

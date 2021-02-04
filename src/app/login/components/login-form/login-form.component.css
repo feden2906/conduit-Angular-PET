@@ -60,3 +60,12 @@
 .sign-btn-invalid:hover {
   cursor: not-allowed;
 }
+
+
+/*Errors register*/
+li {
+  text-align: start;
+  margin: -2px;
+  font-size: 17px;
+  color: red;
+}
