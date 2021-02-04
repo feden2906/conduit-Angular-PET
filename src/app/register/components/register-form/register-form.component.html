@@ -3,14 +3,9 @@
   <p class='sign-title'>Sign up</p>
   <a [routerLink]="['', 'login']" class="sign-link">Have an account?</a>
 
-  <div *ngIf="errors" class='errors-wrapper'>
+  <div *ngIf="errors2" class='errors-wrapper'>
     <ul>
-
-
-      <li *ngFor="let key of errorKeys">
-        <p *ngFor="let e of errors[key]" class='errors'><b>{{key}} {{e}}</b></p>
-      </li>
-
+      <li *ngFor="let e of errors2"><b>{{e}}</b></li>
     </ul>
   </div>
 

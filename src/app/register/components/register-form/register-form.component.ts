@@ -11,8 +11,7 @@ import {RegisterService} from '../../services/register.service';
 export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
-  errors: object[];
-  errorKeys: string[];
+  errors2: string[];
 
   constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
   }
@@ -37,8 +36,11 @@ export class RegisterFormComponent implements OnInit {
         console.log(data);
       },
       e => {
-        this.errors = e.error.errors;
-        this.errorKeys = Object.keys(e.error.errors);
+        const errors = e.error.errors;
+        const errorKeys = Object.keys(errors);
+        const arr = [];
+        errorKeys.map(key => errors[key].map(value => arr.push(`${key} ${value}`)));
+        this.errors2 = arr;
       }
     );
 
