@@ -3,9 +3,17 @@
   <p class='sign-title'>Sign up</p>
   <a [routerLink]="['', 'login']" class="sign-link">Have an account?</a>
 
-  <!--    <div class='errors-wrapper'>-->
-  <!--      <Error errors={errors}/>-->
-  <!--    </div>-->
+  <div *ngIf="errors" class='errors-wrapper'>
+    <ul>
+
+
+      <li *ngFor="let key of errorKeys">
+        <p *ngFor="let e of errors[key]" class='errors'><b>{{key}} {{e}}</b></p>
+      </li>
+
+    </ul>
+  </div>
+
   <form [formGroup]="registerForm" (ngSubmit)="clickSignUp()">
     <input class='sign-input' placeholder='Username' formControlName="username"/>
     <br>

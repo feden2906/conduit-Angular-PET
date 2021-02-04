@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {LoginForm} from '../../models';
+
 
 @Component({
   selector: 'app-login-form',
@@ -9,7 +9,6 @@ import {LoginForm} from '../../models';
 })
 export class LoginFormComponent implements OnInit {
 
-  formValue: LoginForm;
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }

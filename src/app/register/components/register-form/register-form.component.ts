@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {RegisterForm} from '../../models';
+
 import {RegisterService} from '../../services/register.service';
 
 @Component({
@@ -11,7 +11,8 @@ import {RegisterService} from '../../services/register.service';
 export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
-
+  errors: object[];
+  errorKeys: string[];
 
   constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
   }
@@ -27,13 +28,20 @@ export class RegisterFormComponent implements OnInit {
 
   clickSignUp(): void {
     const user = {
-          username: this.registerForm.controls.username.value,
-          email: this.registerForm.controls.username.value,
-          password: this.registerForm.controls.username.value
+      username: this.registerForm.controls.username.value,
+      email: this.registerForm.controls.email.value,
+      password: this.registerForm.controls.password.value
     };
+
     this.registerService.registerUser(user).subscribe(data => {
-      console.log(data);
-    });
+        console.log(data);
+      },
+      e => {
+        this.errors = e.error.errors;
+        this.errorKeys = Object.keys(e.error.errors);
+      }
+    );
+
   }
 
 }

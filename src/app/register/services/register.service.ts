@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {FullUser} from '../models';
+
 import {Observable} from 'rxjs';
+import {FullUser} from '../../models';
 
 
 @Injectable({
@@ -15,7 +16,8 @@ export class RegisterService {
   constructor(private httpClient: HttpClient) { }
 
   registerUser(user): Observable<FullUser> {
-    const body = {data: user};
+    const body = {user,};
+    console.log(body);
     return this.httpClient.post<FullUser>(`${this.baseUrl}/users`, body);
   }
 }
