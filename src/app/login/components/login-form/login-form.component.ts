@@ -10,6 +10,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
+  errors2: string[];
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -21,7 +22,22 @@ export class LoginFormComponent implements OnInit {
   }
 
   clickSignIn(): void {
-    console.log(this.loginForm);
+    const user = {
+      email: this.loginForm.controls.email.value,
+      password: this.loginForm.controls.password.value
+    };
+
+    this.loginService.registerUser(user).subscribe(data => {
+        console.log(data);
+      },
+      e => {
+        const errors = e.error.errors;
+        const errorKeys = Object.keys(errors);
+        const arr = [];
+        errorKeys.map(key => errors[key].map(value => arr.push(`${key} ${value}`)));
+        this.errors2 = arr;
+      }
+    );
 
   }
 }
