@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {RegisterForm} from '../../models';
+import {FullUser, RegisterForm} from '../../models';
 import {RegisterService} from '../../services/register.service';
 
 @Component({
@@ -31,9 +31,11 @@ export class RegisterFormComponent implements OnInit {
           email: this.registerForm.controls.username.value,
           password: this.registerForm.controls.username.value
     };
-    this.registerService.registerUser(user).subscribe(data => {
+    this.registerService.registerUser(user).subscribe((data: FullUser)  => {
       console.log(data);
-    });
+    },
+      error => console.log(error)
+    );
   }
 
 }
