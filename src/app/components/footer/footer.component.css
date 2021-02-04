@@ -2,25 +2,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d9;
+  background-color: #eeeeee;
   height: 8vh;
+  color: #a0a0a0;
 }
 
 .logo-footer {
   font-size: 17px;
-  color: limegreen;
+  color: #5cb85c;
   text-decoration: none;
   margin-right: 7px;
 }
 
 .green-link {
-  color: limegreen;
+  color: #5cb85c;
+  text-decoration: none;
 }
-.green-link:hover {
+.green-link:hover, .logo-footer:hover {
   color: green;
-}
-.logo-footer:hover {
-  color: green;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .fs13{

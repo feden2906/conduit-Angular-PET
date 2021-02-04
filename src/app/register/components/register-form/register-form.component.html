@@ -1,0 +1,21 @@
+<div class='sign-form'>
+
+  <p class='sign-title'>Sign up</p>
+  <a [routerLink]="['', 'login']" class="sign-link">Have an account?</a>
+
+  <!--    <div class='errors-wrapper'>-->
+  <!--      <Error errors={errors}/>-->
+  <!--    </div>-->
+  <form [formGroup]="registerForm" (ngSubmit)="clickSignUp()">
+    <input class='sign-input' placeholder='Username' formControlName="username"/>
+    <br>
+    <input class='sign-input' type='email' placeholder='Email' formControlName="email"/>
+    <br>
+    <input class='sign-input' type='password' placeholder='Password' formControlName="password"/>
+    <div class='btn-wrapper'>
+      <button [disabled]="registerForm.status === 'INVALID'"
+              [class]="[registerForm.status === 'INVALID' ? 'sign-btn-invalid' : 'sign-btn']">Sign up
+      </button>
+    </div>
+  </form>
+</div>
