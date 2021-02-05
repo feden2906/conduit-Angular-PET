@@ -1,24 +1,24 @@
 <div class='header-wrapper'>
     <p class="logo" [routerLink]="['']"><b>conduit</b></p>
 
-<!--    <ul class="navbar-wrapper">-->
-<!--      <li class="nav-link" routerLinkActive="nav-active" [routerLink]="['home']">Home</li>-->
-<!--      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['editor']">-->
-<!--        <img src="https://img.icons8.com/metro/26/A9A9A9/create-new.png"/>-->
-<!--        New Article-->
-<!--      </li>-->
-<!--      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['settings']">-->
-<!--        <img src="https://img.icons8.com/metro/26/A9A9A9/engineering.png"/>-->
-<!--        Settings-->
-<!--      </li>-->
-<!--      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['profile, username']">-->
-<!--        <img src="https://img.icons8.com/metro/26/A9A9A9/gender-neutral-user.png"/>-->
-<!--        username-->
-<!--      </li>-->
-<!--    </ul>-->
+    <ul class="navbar-wrapper" *ngIf="user">
+      <li class="nav-link" routerLinkActive="nav-active" [routerLink]="['home']">Home</li>
+      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['editor']">
+        <img src="https://img.icons8.com/metro/26/A9A9A9/create-new.png"/>
+        New Article
+      </li>
+      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['settings']">
+        <img src="https://img.icons8.com/metro/26/A9A9A9/engineering.png"/>
+        Settings
+      </li>
+      <li class="nav-link flex" routerLinkActive="nav-active" [routerLink]="['profile, username']">
+        <img src="https://img.icons8.com/metro/26/A9A9A9/gender-neutral-user.png"/>
+        username
+      </li>
+    </ul>
 
 
-    <ul class="navbar-wrapper">
+    <ul class="navbar-wrapper" *ngIf="!user">
       <li class="nav-link" routerLinkActive="nav-active" [routerLink]="['home']">Home</li>
       <li class="nav-link" routerLinkActive="nav-active" [routerLink]="['login']">Sign in</li>
       <li class="nav-link" routerLinkActive="nav-active" [routerLink]="['register']">Sign up</li>

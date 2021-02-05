@@ -13,7 +13,8 @@ export class RegisterFormComponent implements OnInit {
   registerForm: FormGroup;
   errors2: string[];
 
-  constructor(private registerService: RegisterService, private formBuilder: FormBuilder) { }
+  constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -33,6 +34,7 @@ export class RegisterFormComponent implements OnInit {
     this.registerService.registerUser(user).subscribe(data => {
         localStorage.setItem('jwtToken', data.user.token);
         // this.setUser(data.user);
+        history.pushState('kj', 'jjj', 'home');
       },
       e => {
         const errors = e.error.errors;
