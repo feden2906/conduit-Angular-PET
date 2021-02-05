@@ -1,1 +1,34 @@
-<p>home-page works!</p>
+<div [class]="['banner']">
+  <h1>conduit</h1>
+  <p>A place to share your <i>Angular</i> knowledge.</p>
+</div>
+
+<div [class]="['body']">
+
+  <div [class]="['column-post']">
+    <div [class]="['post-nav-link']">
+      <a [class]="['nItem', 'chosenItem']">Your Feed</a>
+      <a [class]="['nItem']">Global Feed</a>
+      <a [class]="['nItem']">#chosenTag</a>
+    </div>
+  </div>
+  <div [class]="['tag-wrapper']">
+    <div [class]="['column-tag']">
+      <h4>Popular Tags</h4>
+      <div [class]="['tag-wrapper-2']">
+        <!--      {!!popularTag && popularTag.map((value, i) =>-->
+        <!--                      (<div onClick={() => clickToChoseTag(value)} key={i} className='popular-tag'>{value}</div>)-->
+        <!--                  )}-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  {active === 'your' && loggedIn && <Posts/>}-->
+<!--  {active === 'global' && <Posts/>}-->
+<!--  {active === 'chosen' && <PostsWithChosenTag/>}-->
+
+<!--  {active === 'global' && !!articles && <Pagination/>} //TODO-->
+<!--</div>-->
+
+
