@@ -15,6 +15,13 @@ export class CheckTokenResolveService implements Resolve<FullUser> {
 
   resolve(): Observable<FullUser> | Promise<FullUser> | FullUser {
     console.log('Це повертаэ resolve', this.appService.checkToken());
-    return this.appService.checkToken();
+    return new Promise(resolve1 => {
+      return this.appService.checkToken()
+        .subscribe(data => {
+          console.log(data);
+          return resolve1(data);
+        });
+
+    });
   }
 }
