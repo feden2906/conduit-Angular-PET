@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {RegisterService} from '../../services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -13,7 +14,7 @@ export class RegisterFormComponent implements OnInit {
   registerForm: FormGroup;
   errors2: string[];
 
-  constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
+  constructor(private registerService: RegisterService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,8 +34,8 @@ export class RegisterFormComponent implements OnInit {
 
     this.registerService.registerUser(user).subscribe(data => {
         localStorage.setItem('jwtToken', data.user.token);
-        // this.setUser(data.user);
-        history.pushState('kj', 'jjj', 'home');
+
+        this.router.navigate(['home'], {state: data.user});
       },
       e => {
         const errors = e.error.errors;

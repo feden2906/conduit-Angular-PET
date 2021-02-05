@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../services';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   errors2: string[];
 
-  constructor(private loginService: LoginService, private formBuilder: FormBuilder) {}
+  constructor(private loginService: LoginService, private formBuilder: FormBuilder, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,7 +32,7 @@ export class LoginFormComponent implements OnInit {
 
     this.loginService.loginUser(user).subscribe((data) => {
         localStorage.setItem('jwtToken', data.user.token);
-        // this.setUser(data.user);
+        this.router.navigate(['home'], {state: data.user});
       },
       e => {
         const errors = e.error.errors;
