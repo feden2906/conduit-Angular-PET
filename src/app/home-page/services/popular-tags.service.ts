@@ -9,7 +9,7 @@ export class PopularTagsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTags(): Observable<string[]> {
-    return this.http.get<string[]>('https://conduit.productionready.io/api/tags');
+  getAllTags(): Observable<{ tags: string[] }> {
+    return this.http.get<{ tags: string[] }>('https://conduit.productionready.io/api/tags');
   }
 }

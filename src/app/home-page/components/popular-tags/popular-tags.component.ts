@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {PopularTagsService} from '../../services';
 
 @Component({
   selector: 'app-popular-tags',
@@ -10,11 +11,12 @@ export class PopularTagsComponent implements OnInit {
 
   popularTags: string[];
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private tagService: PopularTagsService) {
+
+  }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(value => this.popularTags = value.tagsData.tags);
-    console.log(this.popularTags);
+    this.tagService.getAllTags().subscribe(value => this.popularTags = value.tags);
   }
 
   clickToChoseTag(tag): void {

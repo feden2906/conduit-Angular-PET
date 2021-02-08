@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {Observable} from 'rxjs';
 import {FullUser} from '../../models';
+import {baseUrl} from '../../data';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import {FullUser} from '../../models';
 })
 export class RegisterService {
 
-  baseUrl = 'https://conduit.productionready.io/api';
+  baseUrl = baseUrl;
 
 
   constructor(private httpClient: HttpClient) { }
