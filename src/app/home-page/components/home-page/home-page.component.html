@@ -6,22 +6,21 @@
 <div [class]="['body']">
 
   <div [class]="['column-post']">
+
     <div [class]="['post-nav-link']">
       <a [class]="['nItem', 'chosenItem']">Your Feed</a>
       <a [class]="['nItem']">Global Feed</a>
       <a [class]="['nItem']">#chosenTag</a>
     </div>
+
+    <app-posts></app-posts>
+
   </div>
   <div [class]="['tag-wrapper']">
-    <app-popular-tags></app-popular-tags>
+    <app-popular-tags ></app-popular-tags>
   </div>
 </div>
 
-<!--  {active === 'your' && loggedIn && <Posts/>}-->
-<!--  {active === 'global' && <Posts/>}-->
-<!--  {active === 'chosen' && <PostsWithChosenTag/>}-->
 
-<!--  {active === 'global' && !!articles && <Pagination/>} //TODO-->
-<!--</div>-->
 
 

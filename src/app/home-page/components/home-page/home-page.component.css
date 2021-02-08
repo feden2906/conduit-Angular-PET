@@ -38,7 +38,7 @@
 
 .nItem {
   color: darkgray;
-  font-size: 19px;
+  font-size: 17px;
   padding: 10px;
   text-decoration: none;
   border-bottom: solid 2px #ffffff;
@@ -48,7 +48,7 @@
   cursor: pointer;
 }
 .chosenItem{
-  color: limegreen;
-  border-bottom: solid 2px limegreen;
+  color: #5cb85c;
+  border-bottom: solid 2px #5cb85c;
 }
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {PostsService} from '../../services';
+
 
 @Component({
   selector: 'app-home-page',
@@ -8,13 +9,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  popularTags: string[];
+  chosenTag: string = null;
 
   constructor() {
   }
 
   ngOnInit(): void {
-
-}
+  }
 
 }
