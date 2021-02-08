@@ -1,0 +1,26 @@
+<div [class]="['post-wrapper']">
+  <div [class]="['post-header']">
+    <div [class]="['post-user-info']">
+      <img [class]="['user-photo']" [src]="[post.author.image]"/>
+      <div>
+        <p [class]="['post-user-name']">{{post.author.username}}</p>
+        <p [class]="['post-user-date']">{{post.createdAt | date: 'longDate'}}</p>
+      </div>
+    </div>
+    <div [class]="['post-user-info']">
+      <p [class]="['fs-15']">{{post.favoritesCount}}</p>
+      <img *ngIf="post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/filled-like.png"/>
+      <img *ngIf="!post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/like.png"/>
+    </div>
+  </div>
+  <div [class]="['post-link']">
+    <h3>{{post.title}}</h3>
+    <p [class]="['post-body']">{{post.body}}</p>
+  </div>
+  <div [class]="['post-all-info-wrapper']">
+    <a [class]="['post-all-info']">Read more...</a>
+    <div [class]="['post-tag-wrapper']">
+      <div *ngFor="let tag of post.tagList" [class]="['post-tag']">{{tag}}</div>
+    </div>
+  </div>
+</div>
