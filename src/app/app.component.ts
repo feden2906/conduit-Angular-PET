@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FullUser} from './models';
+import {AppService} from './services';
+
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,14 @@ export class AppComponent implements OnInit {
 
   user: FullUser;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private appService: AppService) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(value =>
-      // this.user = value.userData
-      console.log('Тут має бути юзік', value)
-  );
+    this.appService.checkToken();
+    // this.activatedRoute.data.subscribe(value =>
+    //   // this.user = value.userData
+    //   console.log('Тут має бути юзік', value)
+  // );
   }
 }
