@@ -9,8 +9,8 @@
     </div>
     <div [class]="['post-user-info']">
       <p [class]="['fs-15']">{{post.favoritesCount}}</p>
-      <img *ngIf="post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/filled-like.png"/>
-      <img *ngIf="!post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/like.png"/>
+      <img (click)="like()" *ngIf="post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/filled-like.png"/>
+      <img (click)="like()" *ngIf="!post.favorited" [class]="['like']" src="https://img.icons8.com/color/48/000000/like.png"/>
     </div>
   </div>
   <div [class]="['post-link']">

@@ -8,9 +8,9 @@
   <div [class]="['column-post']">
 
     <div [class]="['post-nav-link']">
-      <a [class]="['nItem', 'chosenItem']">Your Feed</a>
-      <a [class]="['nItem']">Global Feed</a>
-      <a [class]="['nItem']">#chosenTag</a>
+      <a (click)="clickOnLink('your')" [class]="['nItem']" [class.chosenItem]="chosenTag === 'your'">Your Feed</a>
+      <a (click)="clickOnLink('global')" [class]="['nItem']" [class.chosenItem]="chosenTag === 'global'">Global Feed</a>
+      <a (click)="clickOnLink('tag')" [class]="['nItem']" [class.chosenItem]="chosenTag === 'tag'">#chosenTag</a>
     </div>
 
     <app-posts></app-posts>

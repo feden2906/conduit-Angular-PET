@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PostsService} from '../../services';
+
+import {SubjectTagService} from '../../services/subject-tag.service';
 
 
 @Component({
@@ -11,10 +12,17 @@ export class HomePageComponent implements OnInit {
 
   chosenTag: string = null;
 
-  constructor() {
+  constructor(private subjectTagService: SubjectTagService) {
   }
 
   ngOnInit(): void {
+    this.subjectTagService.getTag().subscribe(value => {
+      this.chosenTag = value;
+    });
   }
 
+
+  clickOnLink(name: string): void {
+    this.subjectTagService.setNewTag(name);
+  }
 }
