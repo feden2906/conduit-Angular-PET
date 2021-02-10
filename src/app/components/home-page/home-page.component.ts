@@ -12,15 +12,13 @@ export class HomePageComponent implements OnInit {
 
   chosenTag: string = null;
 
-  constructor(private subjectTagService: SubjectTagService) {
-  }
+  constructor(private subjectTagService: SubjectTagService) { }
 
   ngOnInit(): void {
     this.subjectTagService.getTag().subscribe(value => {
       this.chosenTag = value;
     });
   }
-
 
   clickOnLink(name: string): void {
     this.subjectTagService.setNewTag(name);

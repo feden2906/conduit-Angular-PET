@@ -2,11 +2,8 @@
   <p>Popular Tags</p>
   <div *ngIf="popularTags" [class]="['tag-wrapper-2']">
 
-      <div [className]="['popular-tag']" *ngFor="let tag of popularTags" (click)="clickToChoseTag(tag)">
-        {{tag}}
-      </div>
+    <div [className]="['popular-tag']" *ngFor="let tag of popularTags" (click)="clickToChoseTag(tag)">
+      {{tag}}
     </div>
-    <!--      {!!popularTag && popularTag.map((value, i) =>-->
-    <!--                      (<div onClick={() => clickToChoseTag(value)} key={i} className='popular-tag'>{value}</div>)-->
-    <!--                  )}-->
   </div>
+</div>

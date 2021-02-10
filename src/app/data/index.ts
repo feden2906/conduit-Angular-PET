@@ -1,1 +1,1 @@
-export * from './base-link'
+export * from './base-link';

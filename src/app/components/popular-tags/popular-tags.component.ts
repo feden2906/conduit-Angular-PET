@@ -11,9 +11,7 @@ export class PopularTagsComponent implements OnInit {
 
   popularTags: string[];
 
-  constructor(private tagService: PopularTagsService) {
-
-  }
+  constructor(private tagService: PopularTagsService) { }
 
   ngOnInit(): void {
     this.tagService.getAllTags().subscribe(value => this.popularTags = value.tags);

@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FullUser} from '../models';
 import {Observable} from 'rxjs';
+import {baseUrl} from '../data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
 
-  baseUrl = 'https://conduit.productionready.io/api';
+  baseUrl = baseUrl;
 
   constructor(private httpClient: HttpClient) { }
 

@@ -10,10 +10,8 @@ export class HeaderComponent implements OnInit {
   @Input()
   user;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {
-    // console.log(this.user);
-  }
+  ngOnInit(): void { }
 
 }

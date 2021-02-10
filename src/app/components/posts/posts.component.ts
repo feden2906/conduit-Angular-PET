@@ -14,7 +14,6 @@ export class PostsComponent implements OnInit {
     this.postsService.getGlobalPosts().subscribe(value => this.shovingPosts = value.articles);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
