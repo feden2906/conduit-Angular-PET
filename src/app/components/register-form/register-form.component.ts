@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {RegisterService} from '../../services';
+
 import {Router} from '@angular/router';
+import {RegisterService} from '../../services';
 
 @Component({
   selector: 'app-register-form',

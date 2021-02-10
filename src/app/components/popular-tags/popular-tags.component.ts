@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {PopularTagsService} from '../../services';
+
 
 @Component({
   selector: 'app-popular-tags',
