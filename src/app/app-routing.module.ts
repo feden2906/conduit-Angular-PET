@@ -1,11 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {HomePageComponent} from './components';
+import {LoginFormComponent} from './components';
+import {RegisterFormComponent} from './components';
+
+
 
 
 const routes: Routes = [
-  {path: 'home', loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule)},
-  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
-  {path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)},
+  {path: 'home', component: HomePageComponent},
+  {path: 'login', component: LoginFormComponent},
+  {path: 'register', component: RegisterFormComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 

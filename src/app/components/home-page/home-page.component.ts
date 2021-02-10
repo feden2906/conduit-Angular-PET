@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-import {SubjectTagService} from '../../services/subject-tag.service';
+import {SubjectTagService} from '../../services';
 
 
 @Component({
