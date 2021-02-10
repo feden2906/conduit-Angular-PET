@@ -3,7 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 
 import {Router} from '@angular/router';
-import {RegisterService} from '../../services';
+import {AuthService} from '../../services';
+
 
 @Component({
   selector: 'app-register-form',
@@ -15,7 +16,7 @@ export class RegisterFormComponent implements OnInit {
   registerForm: FormGroup;
   errors2: string[];
 
-  constructor(private registerService: RegisterService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -33,10 +34,10 @@ export class RegisterFormComponent implements OnInit {
       password: this.registerForm.controls.password.value
     };
 
-    this.registerService.registerUser(user).subscribe(data => {
-        localStorage.setItem('jwtToken', data.user.token);
+    this.authService.registerUser(user).subscribe(data => {
+        this.authService.setJwtToken(data.user.token);
 
-        this.router.navigate(['home'], {state: data.user});
+        // this.router.navigate(['home'], {state: data.user});
       },
       e => {
         const errors = e.error.errors;
